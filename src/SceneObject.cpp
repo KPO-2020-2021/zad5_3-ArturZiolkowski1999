@@ -135,3 +135,15 @@ void SceneObject::setScaleY(double scaleY) {
 void SceneObject::setScaleZ(double scaleZ) {
     this->scaleZ = scaleZ;
 }
+
+double SceneObject::getScaleX() {
+    return this->scaleX;
+}
+
+double SceneObject::getScaleY() {
+    return this->scaleY;
+}
+
+double SceneObject::getScaleZ() {
+    return this->scaleZ;
+}

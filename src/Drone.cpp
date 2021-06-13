@@ -26,6 +26,9 @@ Drone::Drone() {
     initVec = (this->deck)[7] + transInZ;
     this->rotors[3] = HexagonalPrism("../data/hexagonalPrismModel.txt",
                                      "../data/rotor3.txt", initMat, initVec);
+    this->scaleX = 1;
+    this->scaleY = 1;
+    this->scaleZ = 1;
 }
 
 Drone::Drone(std::string fileNameOfDeck, std::string fileNameOfRotor0,
@@ -60,6 +63,9 @@ Drone::Drone(std::string fileNameOfDeck, std::string fileNameOfRotor0,
                                      fileNameOfRotor3, initMat, initVec);
 
     calculatePosition();
+    this->scaleX = 1;
+    this->scaleY = 1;
+    this->scaleZ = 1;
 }
 //
 //void Drone::unitRotationOfRotors(){

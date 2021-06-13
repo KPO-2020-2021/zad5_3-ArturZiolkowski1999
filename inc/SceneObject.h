@@ -36,6 +36,10 @@ public:
     void setScaleX(double scaleX);
     void setScaleY(double scaleY);
     void setScaleZ(double scaleZ);
+    double getScaleX();
+    double getScaleY();
+    double getScaleZ();
+
 
 };
 

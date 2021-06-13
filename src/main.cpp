@@ -74,7 +74,7 @@ int main() {
             case 'p':
                 std::cout << "give target angle in degree\n";
                 std::cin >> angleOfFlight;
-                std::cout << "give length of flight in degree\n";
+                std::cout << "give length of flight in\n";
                 std::cin >> lengthOfFlight;
 
                 gnu.animateDroneTranslation(angleOfFlight, lengthOfFlight);

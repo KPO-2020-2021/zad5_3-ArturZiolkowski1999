@@ -18,12 +18,14 @@ const int SIDES_NUMBER_OF_CUBOID = 12;
 const double MIN_THRESHOLD = 0.000001;
 const int NUMBER_OF_ROTORS = 4;
 const int NUMBER_OF_DRONES = 2;
-const int ALTITUDE_OF_FLIGHT = 30;
+const int ALTITUDE_OF_FLIGHT = 50;
 const int CHOSEN_DRONE_COLOR = 4;
 const int NOT_CHOSEN_DRONE_COLOR = 2;
 const double HALF_OF_DRONE_HEIGHT = 1;
 const char PICKET = 'I';
 const char RIDGE = 'R';
 const char PLATEAU = 'L';
+const double DRONE_RADIUS = 6.3;
+const double OBSTACLES_SIZE = 6;
 
 #endif //ROTATION2D_CONSTANS_H

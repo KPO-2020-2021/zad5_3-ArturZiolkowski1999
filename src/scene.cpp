@@ -232,11 +232,15 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
 
     /* create vector of proper len but only x cord*/
     targetPosFromDroneCenter = vector3D(lengthOfFlight,0,0);
+
     /* draw route */
     writeRouteToFile(targetPosFromDroneCenter);
     /* rotating this vec by orientation of drone*/
     targetPosFromDroneCenter = drone[chosenIndex]->getDeck().getOrientation() * targetPosFromDroneCenter;
-
+/* tu bedzie petla do while co sprawdza zderzenia */
+    if(!isRouteSafe(targetPosFromDroneCenter)){
+        std::cout <<"Kolizja !!!!\n";
+    }
     /* draw route */
     writeRouteToFile(targetPosFromDroneCenter);
 
@@ -608,5 +612,25 @@ std::shared_ptr<Drone> scene::getDrone(int index) {
     }
 }
 
+bool scene::isRouteSafe(vector3D translation) {
+    int counter = 0;
+    vector3D initDronePos = this->drone[this->chosenIndex]->getDeck().getPosition();
+    initDronePos = initDronePos + translation;
+//    /* if route is to short is safe eaven if program could find colision with drone himself*/
+//    if(initDronePos.getLength() < DRONE_RADIUS){
+//        return true;
+//    }
 
+    for(int i = 0; i < this->sceneObjects.size(); ++i){
+        if(abs(initDronePos[0] - this->sceneObjects[i]->getPosition()[0]) <
+        (DRONE_RADIUS + OBSTACLES_SIZE *  this->sceneObjects[i]->getScaleX())  &&
+                abs(initDronePos[1] - this->sceneObjects[i]->getPosition()[1])
+                < (DRONE_RADIUS + OBSTACLES_SIZE *  this->sceneObjects[i]->getScaleY())){
+
+            return false;
+        }
+    }
+
+    return true;
+}
 
