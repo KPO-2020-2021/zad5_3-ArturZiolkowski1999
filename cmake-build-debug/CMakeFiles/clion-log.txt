@@ -1,4 +1,4 @@
-/home/artur/clion-2021.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999
+/home/artur/clion-2021.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999
 -- The C compiler identification is GNU 9.3.0
 -- The CXX compiler identification is GNU 9.3.0
 -- Detecting C compiler ABI info
@@ -24,4 +24,4 @@
 -- Found Doxygen: /usr/bin/doxygen (found version "1.8.17") found components: doxygen missing components: dot
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug
+-- Build files have been written to: /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug

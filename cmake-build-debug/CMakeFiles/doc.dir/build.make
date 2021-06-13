@@ -62,10 +62,10 @@ RM = /home/artur/clion-2021.1/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999
+CMAKE_SOURCE_DIR = /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug
+CMAKE_BINARY_DIR = /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug
 
 # Utility rule file for doc.
 
@@ -73,8 +73,8 @@ CMAKE_BINARY_DIR = /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-bui
 include CMakeFiles/doc.dir/progress.make
 
 CMakeFiles/doc:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[1;35mGenerating API documentation with Doxygen (open ./html/index.html to view)."
-	/usr/bin/doxygen /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/Doxyfile &> doxygen.log
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[1;35mGenerating API documentation with Doxygen (open ./html/index.html to view)."
+	/usr/bin/doxygen /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/Doxyfile &> doxygen.log
 
 doc: CMakeFiles/doc
 doc: CMakeFiles/doc.dir/build.make
@@ -91,6 +91,6 @@ CMakeFiles/doc.dir/clean:
 .PHONY : CMakeFiles/doc.dir/clean
 
 CMakeFiles/doc.dir/depend:
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999 /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999 /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/CMakeFiles/doc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999 /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999 /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/CMakeFiles/doc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doc.dir/depend
 

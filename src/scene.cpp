@@ -29,15 +29,15 @@ scene::scene() {
                            "../data/drone1_rotor1.txt", "../data/drone1_rotor2.txt",
                            "../data/drone1_rotor3.txt", initialPosDrone1, initialOrientation);
 
-    this->sceneObjects.push_back(new Picket("../data/picketModel.txt", "../data/picketBloc.txt",
+    this->sceneObjects.push_back(std::make_shared<Picket>("../data/picketModel.txt", "../data/picketBloc.txt",
                                             initialOrientation, initialPosPicket));
-    this->sceneObjects.push_back(new Picket("../data/picketModel.txt", "../data/picketBloc.txt",
+    this->sceneObjects.push_back(std::make_shared<Picket>("../data/picketModel.txt", "../data/picketBloc.txt",
                                             initialOrientation, initialPosPicket));
-    this->sceneObjects.push_back(new Picket("../data/picketModel.txt", "../data/picketBloc.txt",
+    this->sceneObjects.push_back(std::make_shared<Picket>("../data/picketModel.txt", "../data/picketBloc.txt",
                                             initialOrientation, initialPosPicket));
-    this->sceneObjects.push_back(new Plateau("../data/plateauModel.txt", "../data/plateauBloc.txt",
+    this->sceneObjects.push_back(std::make_shared<Plateau>("../data/plateauModel.txt", "../data/plateauBloc.txt",
                                              initialOrientation, initialPosPlateau));
-    this->sceneObjects.push_back(new Ridge("../data/ridgeModel.txt", "../data/ridgeBloc.txt",
+    this->sceneObjects.push_back(std::make_shared<Ridge>("../data/ridgeModel.txt", "../data/ridgeBloc.txt",
                                            initialOrientation, initialPosRidge));
 
 }
@@ -71,15 +71,16 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
                    "../data/drone1_rotor3.txt", initialPosDrone1, initialOrientation);
 
 
-    this->sceneObjects.push_back(new Picket("../data/picketModel.txt", "../data/picketBloc.txt",
+    this->sceneObjects.push_back(std::make_shared<Picket>("../data/picketModel.txt", "../data/picketBloc.txt",
                                             initialOrientation, initialPosPicket));
-    this->sceneObjects.push_back(new Picket("../data/picketModel.txt", "../data/picketBloc1.txt",
+
+    this->sceneObjects.push_back(std::make_shared<Picket>("../data/picketModel.txt", "../data/picketBloc1.txt",
                                             initialOrientation, initialPosPicket2));
-    this->sceneObjects.push_back(new Picket("../data/picketModel.txt", "../data/picketBloc2.txt",
+    this->sceneObjects.push_back(std::make_shared<Picket>("../data/picketModel.txt", "../data/picketBloc2.txt",
                                             initialOrientation, initialPosPicket3));
-    this->sceneObjects.push_back(new Plateau("../data/plateauModel.txt", "../data/plateauBloc.txt",
+    this->sceneObjects.push_back(std::make_shared<Plateau>("../data/plateauModel.txt", "../data/plateauBloc.txt",
                                              initialOrientation, initialPosPlateau));
-    this->sceneObjects.push_back(new Ridge("../data/ridgeModel.txt", "../data/ridgeBloc.txt",
+    this->sceneObjects.push_back(std::make_shared<Ridge>("../data/ridgeModel.txt", "../data/ridgeBloc.txt",
                                            initialOrientation, initialPosRidge));
 
 
@@ -534,7 +535,7 @@ void scene::animateSimpleDroneTranslation(double angleOfFlight, vector3D targetV
 
 }
 
-std::vector<SceneObject *>& scene::getSceneObjects() {
+std::vector<std::shared_ptr<SceneObject>>& scene::getSceneObjects() {
     return this->sceneObjects;
 }
 
@@ -548,7 +549,8 @@ void scene::eraseObjectFromList(int index) {
     os.close();
 
 
-    delete this->sceneObjects[index];
+    // zobaczymy czy to usunie obiekt
+//    delete this->sceneObjects[index];
     this->sceneObjects.erase(this->sceneObjects.begin() + index);
     drawScene();
 }
@@ -563,21 +565,21 @@ void scene::addObjectToList(Matrix3x3 initialOrientation,
             filenameOfModel = std::string("../data/ridgeModel.txt");
             filenameOfBlock = std::string("../data/ridgeBloc") + std::to_string(this->sceneObjects[0]->getTotal())
                     + std::string(".txt");
-            this->sceneObjects.push_back(new Ridge(filenameOfModel, filenameOfBlock,
+            this->sceneObjects.push_back(std::make_shared<Ridge>(filenameOfModel, filenameOfBlock,
                                                    initialOrientation, initialPosition));
             break;
         case PICKET:
             filenameOfModel = std::string("../data/picketModel.txt");
             filenameOfBlock = std::string("../data/picketBloc") + std::to_string(this->sceneObjects[0]->getTotal())
                               + std::string(".txt");
-            this->sceneObjects.push_back(new Picket(filenameOfModel, filenameOfBlock,
+            this->sceneObjects.push_back(std::make_shared<Picket>(filenameOfModel, filenameOfBlock,
                                                    initialOrientation, initialPosition));
             break;
         case PLATEAU:
             filenameOfModel = std::string("../data/plateauModel.txt");
             filenameOfBlock = std::string("../data/plateauBloc") + std::to_string(this->sceneObjects[0]->getTotal())
                               + std::string(".txt");
-            this->sceneObjects.push_back(new Plateau(filenameOfModel, filenameOfBlock,
+            this->sceneObjects.push_back(std::make_shared<Plateau>(filenameOfModel, filenameOfBlock,
                                                    initialOrientation, initialPosition));
             break;
         default:

@@ -62,10 +62,10 @@ RM = /home/artur/clion-2021.1/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999
+CMAKE_SOURCE_DIR = /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug
+CMAKE_BINARY_DIR = /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include tst/CMakeFiles/DRONE_SCENE_tst.dir/depend.make
@@ -78,29 +78,29 @@ include tst/CMakeFiles/DRONE_SCENE_tst.dir/flags.make
 
 tst/CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.o: tst/CMakeFiles/DRONE_SCENE_tst.dir/flags.make
 tst/CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.o: ../tst/Formula-test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tst/CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.o"
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.o -c /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/tst/Formula-test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tst/CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.o"
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.o -c /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/tst/Formula-test.cpp
 
 tst/CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.i"
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/tst/Formula-test.cpp > CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.i
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/tst/Formula-test.cpp > CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.i
 
 tst/CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.s"
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/tst/Formula-test.cpp -o CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.s
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/tst/Formula-test.cpp -o CMakeFiles/DRONE_SCENE_tst.dir/Formula-test.cpp.s
 
 tst/CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.o: tst/CMakeFiles/DRONE_SCENE_tst.dir/flags.make
 tst/CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.o: ../tst/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tst/CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.o"
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.o -c /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/tst/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tst/CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.o"
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.o -c /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/tst/main.cpp
 
 tst/CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.i"
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/tst/main.cpp > CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.i
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/tst/main.cpp > CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.i
 
 tst/CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.s"
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/tst/main.cpp -o CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.s
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/tst/main.cpp -o CMakeFiles/DRONE_SCENE_tst.dir/main.cpp.s
 
 # Object files for target DRONE_SCENE_tst
 DRONE_SCENE_tst_OBJECTS = \
@@ -116,8 +116,8 @@ tst/DRONE_SCENE_tst: tst/CMakeFiles/DRONE_SCENE_tst.dir/build.make
 tst/DRONE_SCENE_tst: libDRONE_SCENE_lib.a
 tst/DRONE_SCENE_tst: lib/libgtestd.a
 tst/DRONE_SCENE_tst: tst/CMakeFiles/DRONE_SCENE_tst.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable DRONE_SCENE_tst"
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DRONE_SCENE_tst.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable DRONE_SCENE_tst"
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DRONE_SCENE_tst.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tst/CMakeFiles/DRONE_SCENE_tst.dir/build: tst/DRONE_SCENE_tst
@@ -125,10 +125,10 @@ tst/CMakeFiles/DRONE_SCENE_tst.dir/build: tst/DRONE_SCENE_tst
 .PHONY : tst/CMakeFiles/DRONE_SCENE_tst.dir/build
 
 tst/CMakeFiles/DRONE_SCENE_tst.dir/clean:
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst && $(CMAKE_COMMAND) -P CMakeFiles/DRONE_SCENE_tst.dir/cmake_clean.cmake
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst && $(CMAKE_COMMAND) -P CMakeFiles/DRONE_SCENE_tst.dir/cmake_clean.cmake
 .PHONY : tst/CMakeFiles/DRONE_SCENE_tst.dir/clean
 
 tst/CMakeFiles/DRONE_SCENE_tst.dir/depend:
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999 /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/tst /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/tst/CMakeFiles/DRONE_SCENE_tst.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999 /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/tst /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/tst/CMakeFiles/DRONE_SCENE_tst.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tst/CMakeFiles/DRONE_SCENE_tst.dir/depend
 

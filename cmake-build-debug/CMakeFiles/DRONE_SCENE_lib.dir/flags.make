@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug
+CXX_INCLUDES = -I/home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc -I/home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/lib/GNUPlot -I/home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug
 
 CXX_FLAGS = -g -std=gnu++17
 

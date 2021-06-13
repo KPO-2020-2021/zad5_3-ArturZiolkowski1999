@@ -9,7 +9,7 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/Cuboid.cpp.o
  ../inc/SceneObject.h
  ../inc/Vector.h
  ../inc/Vector3D.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/Cuboid.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/Cuboid.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o
  ../inc/Constants.h
  ../inc/Cuboid.h
@@ -20,7 +20,7 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/Drone.cpp.o
  ../inc/SceneObject.h
  ../inc/Vector.h
  ../inc/Vector3D.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/Drone.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/Drone.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o
  ../inc/Constants.h
  ../inc/HexagonalPrism.h
@@ -29,19 +29,19 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/HexagonalPrism.cpp.o
  ../inc/SceneObject.h
  ../inc/Vector.h
  ../inc/Vector3D.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/HexagonalPrism.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/HexagonalPrism.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix3x3.cpp.o
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Constants.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Matrix.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Matrix3x3.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Vector.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/Matrix3x3.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Constants.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Matrix.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Matrix3x3.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Vector.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/Matrix3x3.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/Matrix4x4.cpp.o
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Constants.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Matrix.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Matrix4x4.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Vector.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/Matrix4x4.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Constants.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Matrix.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Matrix4x4.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Vector.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/Matrix4x4.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/Picket.cpp.o
  ../inc/Constants.h
  ../inc/Matrix.h
@@ -50,7 +50,7 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/Picket.cpp.o
  ../inc/SceneObject.h
  ../inc/Vector.h
  ../inc/Vector3D.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/Picket.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/Picket.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/Plateau.cpp.o
  ../inc/Constants.h
  ../inc/Matrix.h
@@ -59,7 +59,7 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/Plateau.cpp.o
  ../inc/SceneObject.h
  ../inc/Vector.h
  ../inc/Vector3D.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/Plateau.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/Plateau.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/Ridge.cpp.o
  ../inc/Constants.h
  ../inc/Matrix.h
@@ -68,7 +68,7 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/Ridge.cpp.o
  ../inc/SceneObject.h
  ../inc/Vector.h
  ../inc/Vector3D.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/Ridge.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/Ridge.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/SceneObject.cpp.o
  ../inc/Constants.h
  ../inc/Matrix.h
@@ -76,15 +76,15 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/SceneObject.cpp.o
  ../inc/SceneObject.h
  ../inc/Vector.h
  ../inc/Vector3D.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/SceneObject.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/SceneObject.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/Vector3D.cpp.o
  ../inc/Constants.h
  ../inc/Vector.h
  ../inc/Vector3D.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/Vector3D.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/Vector3D.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/example.cpp.o
  ../inc/example.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/example.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/example.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o
  ../inc/Constants.h
  ../inc/Cuboid.h
@@ -99,9 +99,9 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/main.cpp.o
  ../inc/Vector3D.h
  ../inc/scene.h
  ../lib/GNUPlot/lacze_do_gnuplota.hh
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Matrix.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/Matrix3x3.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/main.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Matrix.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/Matrix3x3.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/main.cpp
 CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o
  ../inc/Constants.h
  ../inc/Cuboid.h
@@ -117,5 +117,5 @@ CMakeFiles/DRONE_SCENE_lib.dir/src/scene.cpp.o
  ../inc/Vector3D.h
  ../inc/scene.h
  ../lib/GNUPlot/lacze_do_gnuplota.hh
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/inc/scene.h
- /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/src/scene.cpp
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/inc/scene.h
+ /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/src/scene.cpp

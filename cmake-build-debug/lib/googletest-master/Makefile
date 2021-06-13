@@ -67,10 +67,10 @@ RM = /home/artur/clion-2021.1/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999
+CMAKE_SOURCE_DIR = /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug
+CMAKE_BINARY_DIR = /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -145,14 +145,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/CMakeFiles /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/lib/googletest-master//CMakeFiles/progress.marks
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/googletest-master/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug/CMakeFiles 0
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/CMakeFiles /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/lib/googletest-master//CMakeFiles/progress.marks
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/googletest-master/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/googletest-master/clean
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/googletest-master/clean
 .PHONY : clean
 
 # The main clean target
@@ -162,17 +162,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/googletest-master/preinstall
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/googletest-master/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/googletest-master/preinstall
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/googletest-master/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -198,6 +198,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/artur/cpp_projekty/zad5_2-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/artur/cpp_projekty/zad5_3-ArturZiolkowski1999/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
