@@ -20,6 +20,7 @@ public:
           std::string fileNameOfRotor1, std::string fileNameOfRotor2,
           std::string fileNameOfRotor3, vector3D initialTranslation, Matrix3x3 initialOrientation);
 //    void unitRotationOfRotors();
+    HexagonalPrism getRotor(int index);
     const HexagonalPrism & operator[](int index) const;
     HexagonalPrism & operator[](int index);
     Cuboid getDeck();
@@ -31,6 +32,7 @@ public:
     void translateDrone(vector3D vec);
     /*! rotate rotors by given matrices once */
     void rotateRotors(const Matrix3x3 &rotLeft,const Matrix3x3 &rotRight, const int &numberOfRotation);
+    std::string getType() override;
 };
 
 #endif //DRONE_SCENE_DRONE_H

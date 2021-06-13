@@ -23,7 +23,7 @@ private:
     double XRange[2];
     double YRange[2];
     double ZRange[2];
-    Drone drone[NUMBER_OF_DRONES];
+    std::vector<std::shared_ptr<Drone>> drone;
     std::vector<std::shared_ptr<SceneObject>> sceneObjects;
     int chosenIndex;
 
@@ -47,8 +47,6 @@ public:
     /*! animate rotation by given degry around 'z'matrix */
     void animateRotation(double targetAngle, char axis);
 
-    const Drone & operator[](int index) const;
-    Drone & operator[](int index);
     int getIndex();
     void setIndex(int index);
     /*! changing color of chosen drone and not chosen drone */
@@ -65,6 +63,7 @@ public:
     void moveObjectFromList(int index, vector3D pos);
     /*! rotate object chosen by index, by angle in degree  */
     void rotateObjectFromList(int index, Matrix3x3 orient);
+    std::shared_ptr<Drone> getDrone(int index);
 };
 
 #endif //ROTATION3D_GNUPLOTDRAWINGS_H

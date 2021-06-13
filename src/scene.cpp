@@ -21,13 +21,21 @@ scene::scene() {
     vector3D initialPosPlateau = vector3D(80,80,HALF_OF_DRONE_HEIGHT);
     Matrix3x3 initialOrientation = Matrix3x3();
 
-    this->drone[0] = Drone("../data/drone0_deck.txt", "../data/drone0_rotor0.txt",
-                           "../data/drone0_rotor1.txt", "../data/drone0_rotor2.txt",
-                           "../data/drone0_rotor3.txt", initialPosDrone0, initialOrientation);
 
-    this->drone[1] = Drone("../data/drone1_deck.txt", "../data/drone1_rotor0.txt",
-                           "../data/drone1_rotor1.txt", "../data/drone1_rotor2.txt",
-                           "../data/drone1_rotor3.txt", initialPosDrone1, initialOrientation);
+    std::shared_ptr<Drone> dron1 = std::make_shared<Drone>("../data/drone0_deck.txt", "../data/drone0_rotor0.txt",
+                                                           "../data/drone0_rotor1.txt", "../data/drone0_rotor2.txt",
+                                                           "../data/drone0_rotor3.txt", initialPosDrone0, initialOrientation);
+
+    std::shared_ptr<Drone> dron2 = std::make_shared<Drone>("../data/drone1_deck.txt", "../data/drone1_rotor0.txt",
+                                                           "../data/drone1_rotor1.txt", "../data/drone1_rotor2.txt",
+                                                           "../data/drone1_rotor3.txt", initialPosDrone1, initialOrientation);
+    this->drone.push_back(dron1);
+
+    this->drone.push_back(dron2);
+
+    this->sceneObjects.push_back(dron1);
+    this->sceneObjects.push_back(dron2);
+
 
     this->sceneObjects.push_back(std::make_shared<Picket>("../data/picketModel.txt", "../data/picketBloc.txt",
                                             initialOrientation, initialPosPicket));
@@ -62,14 +70,20 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
     vector3D initialPosPlateau = vector3D(80,80,HALF_OF_DRONE_HEIGHT);
     Matrix3x3 initialOrientation = Matrix3x3();
 
-    this->drone[0] = Drone("../data/drone0_deck.txt", "../data/drone0_rotor0.txt",
-                           "../data/drone0_rotor1.txt", "../data/drone0_rotor2.txt",
-                           "../data/drone0_rotor3.txt", initialPosDrone0, initialOrientation);
 
-    this->drone[1] = Drone("../data/drone1_deck.txt", "../data/drone1_rotor0.txt",
-                   "../data/drone1_rotor1.txt", "../data/drone1_rotor2.txt",
-                   "../data/drone1_rotor3.txt", initialPosDrone1, initialOrientation);
+    std::shared_ptr<Drone> dron1 = std::make_shared<Drone>("../data/drone0_deck.txt", "../data/drone0_rotor0.txt",
+                                                           "../data/drone0_rotor1.txt", "../data/drone0_rotor2.txt",
+                                                           "../data/drone0_rotor3.txt", initialPosDrone0, initialOrientation);
 
+    std::shared_ptr<Drone> dron2 = std::make_shared<Drone>("../data/drone1_deck.txt", "../data/drone1_rotor0.txt",
+                                                           "../data/drone1_rotor1.txt", "../data/drone1_rotor2.txt",
+                                                           "../data/drone1_rotor3.txt", initialPosDrone1, initialOrientation);
+    this->drone.push_back(dron1);
+
+    this->drone.push_back(dron2);
+
+    this->sceneObjects.push_back(dron1);
+    this->sceneObjects.push_back(dron2);
 
     this->sceneObjects.push_back(std::make_shared<Picket>("../data/picketModel.txt", "../data/picketBloc.txt",
                                             initialOrientation, initialPosPicket));
@@ -90,13 +104,13 @@ scene::scene(double _XRange[2], double _YRange[2], double _ZRange[2]) {
     for(int h = 0; h < NUMBER_OF_DRONES; ++h){
         /* rotors file*/
         for( int i = 0; i < NUMBER_OF_ROTORS; ++i){
-            GNU.DodajNazwePliku(this->drone[h][i].getFileNameOfBlock().c_str())
+            GNU.DodajNazwePliku(this->drone[h]->getRotor(i).getFileNameOfBlock().c_str())
                     .ZmienSposobRys(PzG::SR_Ciagly)
                     .ZmienSzerokosc(1)
                     .ZmienKolor(CHOSEN_DRONE_COLOR);
         }
         /* deck file */
-        GNU.DodajNazwePliku(this->drone[h].getDeck().getFileNameOfBlock().c_str())
+        GNU.DodajNazwePliku(this->drone[h]->getDeck().getFileNameOfBlock().c_str())
                 .ZmienSposobRys(PzG::SR_Ciagly)
                 .ZmienSzerokosc(1)
                 .ZmienKolor(CHOSEN_DRONE_COLOR);
@@ -135,29 +149,29 @@ void scene::drawScene(){
     for(int f = 0; f < NUMBER_OF_DRONES; ++f){
 //        this->drone[f].calculatePosition();
         /* Draw deck of drone[f]*/
-        os.open(this->drone[f].getDeck().getFileNameOfBlock());
+        os.open(this->drone[f]->getDeck().getFileNameOfBlock());
         if(!os) {
             throw std::invalid_argument("openingDeckFile\n");
         }
-        deck = this->drone[f].getDeck();
+        deck = this->drone[f]->getDeck();
         os << deck;
 
         os.close();
 
         /* Draw rotors of drone[f]*/
         for(int h = 0; h < NUMBER_OF_ROTORS; ++h){
-            os.open(this->drone[f][h].getFileNameOfBlock());
+            os.open(this->drone[f]->getRotor(h).getFileNameOfBlock());
             if(!os) {
                 throw std::invalid_argument("openingRotorFile\n");
             }
-            rotor = this->drone[f][h];
+            rotor = this->drone[f]->getRotor(h);
             os << rotor;
             os.close();
         }
     }
 
     /* Drawing obsticles*/
-    for(int i = 0; i < this->sceneObjects.size(); ++i){
+    for(int i = NUMBER_OF_DRONES; i < this->sceneObjects.size(); ++i){
         this->sceneObjects[i]->calculatePosition();
         os.open(this->sceneObjects[i]->getFileNameOfBlock());
         if(!os) {
@@ -188,27 +202,6 @@ void scene::drawScene(){
     GNU.Rysuj();
 }
 
-const Drone &scene::operator[](int index) const {
-    switch (index) {
-        case 0:
-            return this->drone[0];
-        case 1:
-            return this->drone[1];
-        default:
-            throw std::invalid_argument("index out of range");
-    }
-}
-
-Drone &scene::operator[](int index) {
-    switch (index) {
-        case 0:
-            return this->drone[0];
-        case 1:
-            return this->drone[1];
-        default:
-            throw std::invalid_argument("index out of range");
-    }
-}
 
 int scene::getIndex() {
     return this->chosenIndex;
@@ -242,7 +235,7 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
     /* draw route */
     writeRouteToFile(targetPosFromDroneCenter);
     /* rotating this vec by orientation of drone*/
-    targetPosFromDroneCenter = drone[chosenIndex].getDeck().getOrientation() * targetPosFromDroneCenter;
+    targetPosFromDroneCenter = drone[chosenIndex]->getDeck().getOrientation() * targetPosFromDroneCenter;
 
     /* draw route */
     writeRouteToFile(targetPosFromDroneCenter);
@@ -256,13 +249,13 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
     animateVector = unitTargetPos;
     while(animateVector.getLength() < targetPosFromDroneCenter.getLength()){
         animateVector = animateVector + unitTargetPos;
-        drone[chosenIndex].translateDrone(unitTargetPos);
-        drone[chosenIndex].calculatePosition();
+        drone[chosenIndex]->translateDrone(unitTargetPos);
+        drone[chosenIndex]->calculatePosition();
         /* animating rotation of rotors */
         /* 10 * 6
          * = 60 -> its important because hexagonal prism after 60 degree rotation are look the same */
         for(int i = 0; i < (60/RESOLUTION); ++i){
-            drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
+            drone[chosenIndex]->rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
             if(!DO_YOU_HAVE_OLD_AND_VERY_SLOW_PC_IF_YES_SWITCH_TO_TRUE){
                             usleep(ANIMATION_SPEED);
             }
@@ -271,10 +264,10 @@ void scene::animateDroneTranslation(double angleOfFlight, double lengthOfFlight)
 
     }
     animateVector = animateVector * -1;
-    drone[chosenIndex].translateDrone(animateVector);
+    drone[chosenIndex]->translateDrone(animateVector);
     /* translate drone by this vec*/
-    drone[chosenIndex].translateDrone(targetPosFromDroneCenter);
-    drone[chosenIndex].calculatePosition();
+    drone[chosenIndex]->translateDrone(targetPosFromDroneCenter);
+    drone[chosenIndex]->calculatePosition();
     drawScene();
 
     /*translate downwards */
@@ -303,12 +296,12 @@ void scene::animateUpwardsMovement(char direction) {
     animateVector = unitTargetPos;
     while(animateVector.getLength() < targetPosFromDroneCenter.getLength()){
         animateVector = animateVector + unitTargetPos;
-        drone[chosenIndex].translateDrone(unitTargetPos);
-        drone[chosenIndex].calculatePosition();
+        drone[chosenIndex]->translateDrone(unitTargetPos);
+        drone[chosenIndex]->calculatePosition();
         /* animating rotation of rotors */
         /* 10 * 6 = 60 -> its important */
         for(int i = 0; i < (60/RESOLUTION); ++i){
-            drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
+            drone[chosenIndex]->rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
             if(!DO_YOU_HAVE_OLD_AND_VERY_SLOW_PC_IF_YES_SWITCH_TO_TRUE){
                 usleep(ANIMATION_SPEED);
             }
@@ -317,10 +310,10 @@ void scene::animateUpwardsMovement(char direction) {
 
     }
     animateVector = animateVector * -1;
-    drone[chosenIndex].translateDrone(animateVector);
+    drone[chosenIndex]->translateDrone(animateVector);
     /* translate drone by this vec*/
-    drone[chosenIndex].translateDrone(targetPosFromDroneCenter);
-    drone[chosenIndex].calculatePosition();
+    drone[chosenIndex]->translateDrone(targetPosFromDroneCenter);
+    drone[chosenIndex]->calculatePosition();
     drawScene();
 }
 
@@ -333,10 +326,10 @@ void scene::writeRouteToFile(vector3D &translation) {
         throw std::exception();
     }
     /*Starting point */
-    os << this->drone[this->chosenIndex].getDeck().getPosition();
+    os << this->drone[this->chosenIndex]->getDeck().getPosition();
 
     /*upward position */
-    pos = this->drone[this->chosenIndex].getDeck().getPosition() ;
+    pos = this->drone[this->chosenIndex]->getDeck().getPosition() ;
     pos = pos + upWard;
     os << pos;
     /*translated position */
@@ -361,45 +354,45 @@ void scene::deleteRouteFromFile() {
 void scene::changeDronesColors() {
     if(this->chosenIndex == 0){
         for(int i = 0; i < NUMBER_OF_ROTORS; ++ i){
-            GNU.DodajNazwePliku(this->drone[0][i].getFileNameOfBlock().c_str())
+            GNU.DodajNazwePliku(this->drone[0]->getRotor(i).getFileNameOfBlock().c_str())
                     .ZmienSposobRys(PzG::SR_Ciagly)
                     .ZmienSzerokosc(1)
                     .ZmienKolor(CHOSEN_DRONE_COLOR);
         }
-        GNU.DodajNazwePliku(this->drone[0].getDeck().getFileNameOfBlock().c_str())
+        GNU.DodajNazwePliku(this->drone[0]->getDeck().getFileNameOfBlock().c_str())
                 .ZmienSposobRys(PzG::SR_Ciagly)
                 .ZmienSzerokosc(1)
                 .ZmienKolor(CHOSEN_DRONE_COLOR);
 
         for(int i = 0; i < NUMBER_OF_ROTORS; ++ i){
-            GNU.DodajNazwePliku(this->drone[1][i].getFileNameOfBlock().c_str())
+            GNU.DodajNazwePliku(this->drone[1]->getRotor(i).getFileNameOfBlock().c_str())
                     .ZmienSposobRys(PzG::SR_Ciagly)
                     .ZmienSzerokosc(1)
                     .ZmienKolor(NOT_CHOSEN_DRONE_COLOR);
         }
-        GNU.DodajNazwePliku(this->drone[1].getDeck().getFileNameOfBlock().c_str())
+        GNU.DodajNazwePliku(this->drone[1]->getDeck().getFileNameOfBlock().c_str())
                 .ZmienSposobRys(PzG::SR_Ciagly)
                 .ZmienSzerokosc(1)
                 .ZmienKolor(NOT_CHOSEN_DRONE_COLOR);
     }else if(this->chosenIndex = 1){
         for(int i = 0; i < NUMBER_OF_ROTORS; ++ i){
-            GNU.DodajNazwePliku(this->drone[1][i].getFileNameOfBlock().c_str())
+            GNU.DodajNazwePliku(this->drone[1]->getRotor(i).getFileNameOfBlock().c_str())
                     .ZmienSposobRys(PzG::SR_Ciagly)
                     .ZmienSzerokosc(1)
                     .ZmienKolor(CHOSEN_DRONE_COLOR);
         }
-        GNU.DodajNazwePliku(this->drone[1].getDeck().getFileNameOfBlock().c_str())
+        GNU.DodajNazwePliku(this->drone[1]->getDeck().getFileNameOfBlock().c_str())
                 .ZmienSposobRys(PzG::SR_Ciagly)
                 .ZmienSzerokosc(1)
                 .ZmienKolor(CHOSEN_DRONE_COLOR);
 
         for(int i = 0; i < NUMBER_OF_ROTORS; ++ i){
-            GNU.DodajNazwePliku(this->drone[0][i].getFileNameOfBlock().c_str())
+            GNU.DodajNazwePliku(this->drone[0]->getRotor(i).getFileNameOfBlock().c_str())
                     .ZmienSposobRys(PzG::SR_Ciagly)
                     .ZmienSzerokosc(1)
                     .ZmienKolor(NOT_CHOSEN_DRONE_COLOR);
         }
-        GNU.DodajNazwePliku(this->drone[0].getDeck().getFileNameOfBlock().c_str())
+        GNU.DodajNazwePliku(this->drone[0]->getDeck().getFileNameOfBlock().c_str())
                 .ZmienSposobRys(PzG::SR_Ciagly)
                 .ZmienSzerokosc(1)
                 .ZmienKolor(NOT_CHOSEN_DRONE_COLOR);
@@ -431,24 +424,24 @@ void scene::animateRotation(double targetAngle, char axis) {
         }else{
             animateDegree += 2;
             reverseAnimateMatrix = unitMatrixMinus * reverseAnimateMatrix;
-            drone[chosenIndex].rotateDrone(unitMatrixPlus);
+            drone[chosenIndex]->rotateDrone(unitMatrixPlus);
         }
-        drone[chosenIndex].calculatePosition();
+        drone[chosenIndex]->calculatePosition();
 
         /* animating rotation of rotors */
         /* 10 * 6 = 60 -> its important */
         for(int i = 0; i < (60/RESOLUTION); ++i){
-            drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
+            drone[chosenIndex]->rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
 //            usleep(ANIMATION_SPEED);
             drawScene();
         }
 
     }
-    drone[chosenIndex].rotateDrone(reverseAnimateMatrix);
-    drone[chosenIndex].calculatePosition();;
-    drone[chosenIndex].rotateDrone(targetMatrix);
+    drone[chosenIndex]->rotateDrone(reverseAnimateMatrix);
+    drone[chosenIndex]->calculatePosition();;
+    drone[chosenIndex]->rotateDrone(targetMatrix);
     /* translate drone by this vec*/
-    drone[chosenIndex].calculatePosition();
+    drone[chosenIndex]->calculatePosition();
     drawScene();
 }
 
@@ -458,7 +451,7 @@ void scene::makeCircleWithDrone(double radius) {
     int numberOfAngles = 20;
     int angleOfCurve = 180 - (180 * numberOfAngles - 360 )/ numberOfAngles;
 
-    vector3D centerOfCircle = this->drone[this->chosenIndex].getDeck().getPosition();
+    vector3D centerOfCircle = this->drone[this->chosenIndex]->getDeck().getPosition();
     /* switch z coord to max altitude*/
     centerOfCircle[2] = ALTITUDE_OF_FLIGHT;
     /*translate upwards */
@@ -467,17 +460,16 @@ void scene::makeCircleWithDrone(double radius) {
     vector3D radiusVec = vector3D(radius, 0 ,0);
     Matrix3x3 unitRotation = Matrix3x3(-angleOfCurve, 'z');
     Matrix3x3 rot90 = Matrix3x3(90, 'z');
-
     animateSimpleDroneTranslation(0,radiusVec);
 
     vector3D targetPosition = vector3D(0,10,0);
-    targetPosition = this->drone[this->chosenIndex].getDeck().getOrientation() * targetPosition;
+    targetPosition = this->drone[this->chosenIndex]->getDeck().getOrientation() * targetPosition;
     targetPosition = rot90 * targetPosition;
 
 
     /* calculate vector from centre of circle to drone */
 
-    vector3D distance = this->drone[this->chosenIndex].getDeck().getPosition();
+    vector3D distance = this->drone[this->chosenIndex]->getDeck().getPosition();
     distance = distance - centerOfCircle;
     for(int i = 0; i < numberOfAngles; i ++){
             animateSimpleDroneTranslation(-angleOfCurve, targetPosition);
@@ -491,7 +483,7 @@ void scene::makeCircleWithDrone(double radius) {
 
     /*translate downwards */
     animateUpwardsMovement('d');
-    this->drone[this->chosenIndex].calculatePosition();
+    this->drone[this->chosenIndex]->calculatePosition();
 
 
 }
@@ -512,13 +504,13 @@ void scene::animateSimpleDroneTranslation(double angleOfFlight, vector3D targetV
     animateVector = unitTargetPos;
     while(animateVector.getLength() < targetVec.getLength()){
         animateVector = animateVector + unitTargetPos;
-        drone[chosenIndex].translateDrone(unitTargetPos);
-        drone[chosenIndex].calculatePosition();
+        drone[chosenIndex]->translateDrone(unitTargetPos);
+        drone[chosenIndex]->calculatePosition();
         /* animating rotation of rotors */
         /* 10 * 6
          * = 60 -> its important because hexagonal prism after 60 degree rotation are look the same */
         for(int i = 0; i < (60/RESOLUTION); ++i){
-            drone[chosenIndex].rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
+            drone[chosenIndex]->rotateRotors(Matrix3x3(RESOLUTION, 'z'),Matrix3x3(-RESOLUTION, 'z'), i);
             if(!DO_YOU_HAVE_OLD_AND_VERY_SLOW_PC_IF_YES_SWITCH_TO_TRUE){
                 usleep(ANIMATION_SPEED);
             }
@@ -527,10 +519,10 @@ void scene::animateSimpleDroneTranslation(double angleOfFlight, vector3D targetV
 
     }
     animateVector = animateVector * -1;
-    drone[chosenIndex].translateDrone(animateVector);
+    drone[chosenIndex]->translateDrone(animateVector);
     /* translate drone by this vec*/
-    drone[chosenIndex].translateDrone(targetVec);
-    drone[chosenIndex].calculatePosition();
+    drone[chosenIndex]->translateDrone(targetVec);
+    drone[chosenIndex]->calculatePosition();
     drawScene();
 
 }
@@ -541,6 +533,9 @@ std::vector<std::shared_ptr<SceneObject>>& scene::getSceneObjects() {
 
 void scene::eraseObjectFromList(int index) {
 
+    if(index == 1 || index == 0){
+        throw std::invalid_argument("You cant delete drones... they are too expensive");
+    }
     std::ofstream os;
     os.open(this->sceneObjects[index]->getFileNameOfBlock());
     if(!os) {
@@ -549,8 +544,6 @@ void scene::eraseObjectFromList(int index) {
     os.close();
 
 
-    // zobaczymy czy to usunie obiekt
-//    delete this->sceneObjects[index];
     this->sceneObjects.erase(this->sceneObjects.begin() + index);
     drawScene();
 }
@@ -602,6 +595,17 @@ void scene::moveObjectFromList(int index, vector3D pos) {
 void scene::rotateObjectFromList(int index, Matrix3x3 orient) {
     this->sceneObjects[index]->setOrientation(orient);
     this->sceneObjects[index]->calculatePosition();
+}
+
+std::shared_ptr<Drone> scene::getDrone(int index) {
+    switch (index) {
+        case 0:
+            return this->drone[0];
+        case 1:
+            return this->drone[1];
+        default:
+            throw std::invalid_argument("index out of range");
+    }
 }
 
 

@@ -181,3 +181,22 @@ void Drone::rotateRotors(const Matrix3x3 &rotLeft, const Matrix3x3 &rotRight, co
         this->rotors[r].translationByVector(this->deck.getPosition());
     }
 }
+
+HexagonalPrism Drone::getRotor(int index) {
+    switch (index) {
+        case 0:
+            return this->rotors[0];
+        case 1:
+            return this->rotors[1];;
+        case 2:
+            return this->rotors[2];
+        case 3:
+            return this->rotors[3];
+        default:
+            throw std::invalid_argument("index out of range");
+    }
+}
+
+std::string Drone::getType() {
+    return std::string("Drone");
+}

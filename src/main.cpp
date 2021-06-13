@@ -49,17 +49,17 @@ int main() {
                 break;
             case 'a':
                 if(gnu.getIndex() == 0){
-                    std::cout << "position of Drone 0: (" << gnu[0].getDeck().getPosition()[0]
-                    << ", " << gnu[0].getDeck().getPosition()[1] <<") <- active\n";
+                    std::cout << "position of Drone 0: (" << gnu.getDrone(0)->getDeck().getPosition()[0]
+                    << ", " << gnu.getDrone(0)->getDeck().getPosition()[1] <<") <- active\n";
 
-                    std::cout << "position of Drone 1: (" << gnu[1].getDeck().getPosition()[0]
-                    << ", " << gnu[1].getDeck().getPosition()[1] <<")\n";;
+                    std::cout << "position of Drone 1: (" << gnu.getDrone(1)->getDeck().getPosition()[0]
+                    << ", " << gnu.getDrone(1)->getDeck().getPosition()[1] <<")\n";;
                 }else if(gnu.getIndex() == 1){
-                    std::cout << "position of Drone 0: (" << gnu[0].getDeck().getPosition()[0]
-                              << ", " << gnu[0].getDeck().getPosition()[1] <<")\n";
+                    std::cout << "position of Drone 0: (" << gnu.getDrone(0)->getDeck().getPosition()[0]
+                              << ", " << gnu.getDrone(0)->getDeck().getPosition()[1] <<")\n";
 
-                    std::cout << "position of Drone 1: (" << gnu[1].getDeck().getPosition()[0]
-                              << ", " << gnu[1].getDeck().getPosition()[1] <<") <- active\n";;
+                    std::cout << "position of Drone 1: (" << gnu.getDrone(1)->getDeck().getPosition()[0]
+                              << ", " << gnu.getDrone(1)->getDeck().getPosition()[1] <<") <- active\n";;
                 }else{
                     throw std::invalid_argument("Unknown drone is chosen");
                 }
@@ -80,7 +80,7 @@ int main() {
                 gnu.animateDroneTranslation(angleOfFlight, lengthOfFlight);
 
                 /*updating scene */
-                gnu[gnu.getIndex()].calculatePosition();
+                gnu.getDrone(gnu.getIndex())->calculatePosition();
                 gnu.drawScene();
 
             case 'w':
@@ -158,7 +158,12 @@ int main() {
                 gnu.getSceneObjects()[gnu.getSceneObjects().size()-1]->setScaleZ(scaleZ);
                 break;
             case 'g':
-                for(int i = 0; i < gnu.getSceneObjects().size(); ++i){
+                for(int i = 0; i < 2; ++i){
+                    std::cout << i << " - " << gnu.getSceneObjects()[i]->getType()
+                    << " position x = " << gnu.getDrone(i)->getDeck().getPosition()[0]
+                    << " position y = " << gnu.getDrone(i)->getDeck().getPosition()[1] << std::endl;
+                }
+                for(int i = 2; i < gnu.getSceneObjects().size(); ++i){
                     std::cout << i << " - " << gnu.getSceneObjects()[i]->getType()
                     << " position x = " << gnu.getSceneObjects()[i]->getPosition()[0]
                     << " position y = " << gnu.getSceneObjects()[i]->getPosition()[1] << std::endl;
