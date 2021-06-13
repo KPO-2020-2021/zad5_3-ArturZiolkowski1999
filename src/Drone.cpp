@@ -29,6 +29,7 @@ Drone::Drone() {
     this->scaleX = 1;
     this->scaleY = 1;
     this->scaleZ = 1;
+    this -> positionOfCenterOfMass = this->deck.getPosition();
 }
 
 Drone::Drone(std::string fileNameOfDeck, std::string fileNameOfRotor0,
@@ -66,6 +67,7 @@ Drone::Drone(std::string fileNameOfDeck, std::string fileNameOfRotor0,
     this->scaleX = 1;
     this->scaleY = 1;
     this->scaleZ = 1;
+    this -> positionOfCenterOfMass = this->deck.getPosition();
 }
 //
 //void Drone::unitRotationOfRotors(){
@@ -120,6 +122,7 @@ void Drone::calculatePosition() {
     for(int i = 0 ; i < NUMBER_OF_ROTORS; ++i){
         this->rotors[i].calculateActualPosition(this->deck.getPosition());
     }
+    this -> positionOfCenterOfMass = this->deck.getPosition();
 }
 
 void Drone::rotateDrone(Matrix3x3 rotMatrix) {
