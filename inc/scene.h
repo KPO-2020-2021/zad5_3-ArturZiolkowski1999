@@ -64,7 +64,8 @@ public:
     /*! rotate object chosen by index, by angle in degree  */
     void rotateObjectFromList(int index, Matrix3x3 orient);
     std::shared_ptr<Drone> getDrone(int index);
-    bool isRouteSafe(vector3D translation);
+    /*! check if there are no collisions in route */
+    bool isRouteSafe(vector3D &translation);
 };
 
 #endif //ROTATION3D_GNUPLOTDRAWINGS_H

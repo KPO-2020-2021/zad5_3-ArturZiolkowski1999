@@ -14,7 +14,6 @@ Example:
 
 ## Structure
 
-Difference between 5.2 and 5.1 version of this project is that there is class sceneObject instead of Geometrical bloc.
-This class have virtual metods, which are overrided in child clases.
-And scene class consists of std::vector of pointers on sceneObjects. Clases Plateau, Ridge an Picket has overrided 
-methods of sceneObjeckts.
+Difference between 5.3 and 5.3 version of this project is that there lists of drones and lists of obstacles are std::vectors of shared pointers.
+in last verersion there was simple static table of drone and dynamic std::vector of simple pointers on obstacles.
+In this version collision menagment was added too.
